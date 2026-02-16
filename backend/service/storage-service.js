@@ -1,6 +1,7 @@
-const Imagekit=require("imagekit")
+const Imagekit=require("imagekit");
+require("dotenv").config();
 
-process.loadEnvFile();
+
 const imagekit=new Imagekit({
     privateKey:process.env.IMAGEKIT_PRIVATE_KEY,
     publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
@@ -15,6 +16,7 @@ async function uploadFile(buffer){
     const result=await imagekit.upload({
         file:buffer.toString("base64"),
         fileName:"image.jpg"
+
     });
 
     return result;

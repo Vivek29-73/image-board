@@ -2,9 +2,15 @@ const express = require("express");
 require("dotenv").config({ path: require('path').resolve(__dirname, './src/.env') });
 const multer=require("multer");
 const uploadFile=require("./service/storage-service");
-const postModel=require ("./models/post-schema")
+const postModel=require ("./models/post-schema");
+
+const cors = require('cors');
 
 const app = express();
+app.use(cors({
+    origin: 'http://localhost:3000' // Your React app URL
+}));
+
 // Add body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
