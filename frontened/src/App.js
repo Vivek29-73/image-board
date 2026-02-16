@@ -15,7 +15,7 @@ function App() {
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:000/posts');
+      const response = await fetch('http://localhost:8000/posts');
       const data = await response.json();
       setPosts(data.posts);
     } catch (error) {
